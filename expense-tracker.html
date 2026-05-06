@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense_Tracker_App</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 60px auto;
+    text-align: center;
+    background: #f5f5f5;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  button {
+    padding: 10px 24px;
+    font-size: 16px;
+    background: #2c7be5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  ul {
+    margin: auto;
+    font-size: small;
+    color: green;
+  }
+  #total {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c7be5;
+  }
+  </style>
+</head>
+<body>
+    <input type="text" id="expenseName" placeholder="Enter expense name here"><br>
+    <input type="number" id="amount" placeholder="Enter expense amount here"><br>
+    <button id="addButton">Add Expense</button>
+    <ul id="listOfExpenses">
+        
+    </ul>
+    <p id="total"></p>
+    
+    <script>
+        const nameInput = document.getElementById("expenseName");
+        const amountInput = document.getElementById("amount");
+        const button = document.getElementById("addButton");
+        const ul = document.getElementById("listOfExpenses");
+        const p = document.getElementById("total");
+        let totalAmount = 0;
+        
+        button.addEventListener("click",function(){
+            if (nameInput.value === "" || amountInput.value === "") {
+  alert("Please fill in both fields");
+  return;
+}
+            const name = String(nameInput.value);
+            const amount = Number(amountInput.value);
+
+            const li = document.createElement("li"); 
+li.textContent = name + " - " + amount + " birr";       
+document.getElementById("listOfExpenses").appendChild(li);  
+totalAmount += amount;
+p.textContent = "Total: " + totalAmount;
+nameInput.value = "";
+amountInput.value = "";
+
+
+        })
+    </script>
+</body>
+
+</html>
