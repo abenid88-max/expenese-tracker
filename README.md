@@ -1,2 +1,2 @@
-# expenese-tracker
+# expense-tracker
 Expense tracker app built with HTML, CSS and JavaScript
